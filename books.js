@@ -3,7 +3,7 @@
 let myBooks = [];
 
 // eslint-disable-next-line no-unused-vars
-function adBook() {
+function addBook() {
   const book = {};
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
@@ -50,3 +50,7 @@ window.onload = function () {
 function saveBooks() {
   localStorage.setItem('myBooks', JSON.stringify(myBooks));
 }
+
+const addButton = document.querySelector('#add-button');
+
+addButton.addEventListener('click', addBook);
