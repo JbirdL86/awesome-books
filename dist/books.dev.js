@@ -1,8 +1,11 @@
 "use strict";
 
-var myBooks = [];
+/* eslint-disable no-undef */
 
-function addBook() {
+/* eslint no-use-before-define:["error",{"functions":false}] */
+var myBooks = []; // eslint-disable-next-line no-unused-vars
+
+function adBook() {
   var book = {};
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;

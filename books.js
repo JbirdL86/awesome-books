@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint no-use-before-define:["error",{"functions":false}] */
 let myBooks = [];
 
-function addBook() {
+// eslint-disable-next-line no-unused-vars
+function adBook() {
   const book = {};
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
@@ -39,7 +42,7 @@ function removeBook(title) {
   saveBooks();
 }
 
-window.onload = function() {
+window.onload = function () {
   myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
   displayBooks();
 };
