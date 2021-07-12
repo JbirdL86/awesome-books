@@ -1,7 +1,9 @@
-let myBooks = [];
+"use strict";
+
+var myBooks = [];
 
 function addBook() {
-  const book = {};
+  var book = {};
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
   myBooks.push(book);
@@ -10,18 +12,20 @@ function addBook() {
 }
 
 function displayBooks() {
-  const booklist = document.getElementById('booklist');
+  var booklist = document.getElementById('booklist');
   booklist.innerHTML = '';
-  myBooks.map((book) => {
-    const divBook = document.createElement('div');
+  myBooks.map(function (book) {
+    var divBook = document.createElement('div');
     divBook.innerHTML = '';
-    const p = document.createElement('p'); // Title
+    var p = document.createElement('p'); // Title
+
     p.innerHTML = book.title;
-    const p2 = document.createElement('p'); // Author
+    var p2 = document.createElement('p'); // Author
+
     p2.innerHTML = book.author;
-    const btn = document.createElement('button');
+    var btn = document.createElement('button');
     btn.innerHTML = 'Remove';
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function () {
       removeBook(book.title);
     });
     divBook.appendChild(p);
@@ -33,13 +37,15 @@ function displayBooks() {
 }
 
 function removeBook(title) {
-  myBooks = myBooks.filter((book) => book.title !== title);
+  myBooks = myBooks.filter(function (book) {
+    return book.title !== title;
+  });
   localStorage.setItem('myBooks', JSON.stringify(myBooks));
   displayBooks();
   saveBooks();
 }
 
-window.onload = function() {
+window.onload = function () {
   myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
   displayBooks();
 };
