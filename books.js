@@ -3,16 +3,12 @@
 class Booklist {
   constructor() {
     this.booklist = JSON.parse(localStorage.getItem('booklist') || '[]');
-    // this.id = 0;
-    // this.id = (Math.random() + 1).toString;
+    this.id = (Math.random() + 0).toString();
   }
 
   addBook(book) {
-    // this.id += 1;
-    // book.id = this.id;
-    // // book.id = (Math.random() + 1).toString;
-    // id = generateBookId();
-    this.books = this.books.concat({ title, author, id});
+    this.id += 1;
+    book.id = this.id;
     this.booklist.push(book);
   }
 
@@ -34,13 +30,13 @@ function addBook() {
   book.title = document.getElementById('title').value;
   myBooklist.addBook(book);
   displayBooks();
-  saveBooks();
+  SaveBooks();
 }
 
 function removeBook(id) {
   myBooklist.removeBook(id);
   displayBooks();
-  saveBooks();
+  SaveBooks();
 }
 
 function displayBooks() {
@@ -69,6 +65,6 @@ window.onload = function () {
   displayBooks();
 }
 
-function saveBooks() {
+function SaveBooks() {
   myBooklist.saveLibrary();
 }
