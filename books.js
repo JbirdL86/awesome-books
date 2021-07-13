@@ -3,7 +3,7 @@
 class Booklist {
   constructor() {
     this.booklist = JSON.parse(localStorage.getItem('booklist') || '[]');
-    this.id = (Math.random() + 0).toString();
+    this.id = (Math.random() + 1).toString();
   }
 
   addBook(book) {
