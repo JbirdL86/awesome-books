@@ -1,13 +1,44 @@
-/* eslint-disable no-undef */
 /* eslint no-use-before-define:["error",{"functions":false}] */
-let myBooks = [];
+
+class Booklist {
+  constructor() {
+    this.booklist = JSON.parse(localStorage.getItem('booklist') || '[]');
+    // this.id = 0;
+    // this.id = (Math.random() + 1).toString;
+  }
+
+  addBook(book) {
+    // this.id += 1;
+    // book.id = this.id;
+    // // book.id = (Math.random() + 1).toString;
+    // id = generateBookId();
+    this.books = this.books.concat({ title, author, id});
+    this.booklist.push(book);
+  }
+
+  removeBook(id) {
+    this.booklist = this.booklist.filter((book) => book.id !== id);
+  }
+
+  saveLibrary() {
+    localStorage.setItem('booklist', JSON.stringify(this.booklist));
+  }
+}
+
+const myBooklist = new Booklist();
 
 // eslint-disable-next-line no-unused-vars
-function adBook() {
+function addBook() {
   const book = {};
-  book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
-  myBooks.push(book);
+  book.title = document.getElementById('title').value;
+  myBooklist.addBook(book);
+  displayBooks();
+  saveBooks();
+}
+
+function removeBook(id) {
+  myBooklist.removeBook(id);
   displayBooks();
   saveBooks();
 }
@@ -15,17 +46,16 @@ function adBook() {
 function displayBooks() {
   const booklist = document.getElementById('booklist');
   booklist.innerHTML = '';
-  myBooks.map((book) => {
+  myBooklist.booklist.map((book) => {
     const divBook = document.createElement('div');
-    divBook.innerHTML = '';
-    const p = document.createElement('p'); // Title
-    p.innerHTML = book.title;
-    const p2 = document.createElement('p'); // Author
+    const p = document.createElement('p'); // Author
+    p.innerHTML = book.author;
+    const p2 = document.createElement('p'); // Title
     p2.innerHTML = book.author;
-    const btn = document.createElement('button');
+    const btn = document.createElement('BUTTON');
     btn.innerHTML = 'Remove';
     btn.addEventListener('click', () => {
-      removeBook(book.title);
+      removeBook(book.id);
     });
     divBook.appendChild(p);
     divBook.appendChild(p2);
@@ -35,18 +65,10 @@ function displayBooks() {
   });
 }
 
-function removeBook(title) {
-  myBooks = myBooks.filter((book) => book.title !== title);
-  localStorage.setItem('myBooks', JSON.stringify(myBooks));
+window.onload = function () {
   displayBooks();
-  saveBooks();
 }
 
-window.onload = function () {
-  myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
-  displayBooks();
-};
-
 function saveBooks() {
-  localStorage.setItem('myBooks', JSON.stringify(myBooks));
+  myBooklist.saveLibrary();
 }
