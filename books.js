@@ -67,3 +67,51 @@ window.onload = function () {
 function SaveBooks() {
   myBooklist.saveLibrary();
 }
+
+
+
+
+// function addBook() {
+//   const book = {};
+//   book.author = document.getElementById('author').value;
+//   book.title = document.getElementById('title').value;
+//   myBooklist.addBook(book);
+//   displayBooks();
+//   SaveBooks();
+// }
+
+// function removeBook(id) {
+//   myBooklist.removeBook(id);
+//   displayBooks();
+//   SaveBooks();
+// }
+
+// function displayBooks() {
+//   const booklist = document.getElementById('booklist');
+//   booklist.innerHTML = '';
+//   myBooklist.booklist.map((book) => {
+//     const divBook = document.createElement('div');
+//     const p = document.createElement('p'); // Author
+//     p.innerHTML = book.author;
+//     const p2 = document.createElement('p'); // Title
+//     p2.innerHTML = book.author;
+//     const btn = document.createElement('BUTTON');
+//     btn.innerHTML = 'Remove';
+//     btn.addEventListener('click', () => {
+//       removeBook(book.id);
+//     });
+//     divBook.appendChild(p);
+//     divBook.appendChild(p2);
+//     divBook.appendChild(btn);
+//     booklist.appendChild(divBook);
+//     return book;
+//   });
+// }
+
+// window.onload = function () {
+//   displayBooks();
+// }
+
+// function SaveBooks() {
+//   myBooklist.saveLibrary();
+// }
