@@ -1,19 +1,46 @@
 /* eslint-disable no-undef */
 /* eslint no-use-before-define:["error",{"functions":false}] */
-let myBooks = [];
-
+/* eslint-disable max-classes-per-file */
 // eslint-disable-next-line no-unused-vars
-function addBook() {
-  const book = {};
-  book.title = document.getElementById('title').value;
-  book.author = document.getElementById('author').value;
-  myBooks.push(book);
-  displayBooks();
-  saveBooks();
+
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
+class Library {
+  static init() {
+    const myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
+    // displayBooks();
+    return myBooks;
+  }
+
+  static id = 0;
+
+  static addBook(book) {
+    const myBooks = Library.init();
+    // book.title = document.getElementById('title').value;
+    // book.author = document.getElementById('author').value;
+    this.id += 1;
+    book.id = this.id + 1;
+    myBooks.push(book);
+    // displayBooks();
+    // saveBooks();
+    localStorage.setItem('myBooks', JSON.stringify(myBooks));
+  }
+
+  static removeBook(title) {
+    myBooks = myBooks.filter((book) => book.title !== title);
+    localStorage.setItem('myBooks', JSON.stringify(myBooks));
+    displayBooks();
+  }
 }
 
 function displayBooks() {
   const booklist = document.getElementById('booklist');
+  const myBooks = Library.init();
   booklist.innerHTML = '';
   myBooks.map((book) => {
     const divBook = document.createElement('div');
@@ -35,22 +62,19 @@ function displayBooks() {
   });
 }
 
-function removeBook(title) {
-  myBooks = myBooks.filter((book) => book.title !== title);
-  localStorage.setItem('myBooks', JSON.stringify(myBooks));
-  displayBooks();
-  saveBooks();
-}
-
-window.onload = function () {
-  myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
-  displayBooks();
-};
-
-function saveBooks() {
-  localStorage.setItem('myBooks', JSON.stringify(myBooks));
-}
-
 const addButton = document.querySelector('#add-button');
 
-addButton.addEventListener('click', addBook);
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const book = new Book(document.getElementById('title').value, document.getElementById('author').value);
+  Library.addBook(book);
+  // displayBooks();
+});
+
+/*  window.onload = function () {
+  myBooks = JSON.parse(localStorage.getItem('myBooks') || '[]');
+  displayBooks();
+};  */
+/*  function saveBooks() {
+  localStorage.setItem('myBooks', JSON.stringify(myBooks));
+}  */
