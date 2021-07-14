@@ -14,7 +14,7 @@ function () {
     _classCallCheck(this, Booklist);
 
     this.booklist = JSON.parse(localStorage.getItem('booklist') || '[]');
-    this.id = (Math.random() + 1).toString();
+    this.id = (Math.random() + 1).toString(27).substring(4);
   }
 
   _createClass(Booklist, [{
