@@ -43,9 +43,9 @@ function displayBooks() {
   booklist.innerHTML = '';
   myBooklist.booklist.map((book) => {
     const divBook = document.createElement('div');
-    const p = document.createElement('p'); // Author
-    p.innerHTML = book.author;
-    const p2 = document.createElement('p'); // Title
+    const p = document.createElement('p'); // Title
+    p.innerHTML = book.title;
+    const p2 = document.createElement('p'); // Author
     p2.innerHTML = book.author;
     const btn = document.createElement('BUTTON');
     btn.innerHTML = 'Remove';
@@ -68,3 +68,7 @@ window.onload = function () {
 function SaveBooks() {
   myBooklist.saveLibrary();
 }
+
+const addButton = document.querySelector('#add-button');
+
+addButton.addEventListener('click', addBook);
