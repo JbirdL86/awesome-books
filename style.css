@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .main-container {
   margin-top: 40px;
   text-align: center;
@@ -40,7 +39,7 @@
 }
 
 .alternate {
-  background-color: rgb(146, 143, 143) ;
+  background-color: rgb(146, 143, 143);
 }
 
 .remove-button {
@@ -54,10 +53,8 @@
 }
 
 #form {
-  margin-top: 40px;
   text-align: center;
-  margin: 0 20%;
-
+  margin: 40px 20% 0 20%;
 }
 
 #form > h1 {
@@ -68,7 +65,6 @@
   display: flex;
   flex-direction: column;
   padding: 0 23%;
-
 }
 
 #add-book > div {
@@ -79,7 +75,7 @@
   width: 287px;
 }
 
-#add-book > button{
+#add-book > button {
   width: 40px;
   align-self: flex-end;
 }
