@@ -43,17 +43,25 @@ function displayBooks() {
   booklist.innerHTML = '';
   myBooklist.booklist.map((book) => {
     const divBook = document.createElement('div');
+    divBook.classList.add('book-div');
+    const divTitle = document.createElement('div');
+    divTitle.classList.add('title-container');
     const p = document.createElement('p'); // Title
-    p.innerHTML = book.title;
+    p.innerHTML = `"${book.title}"`;
+    const px = document.createElement('p'); // by
+    px.innerHTML = 'by';
     const p2 = document.createElement('p'); // Author
     p2.innerHTML = book.author;
     const btn = document.createElement('BUTTON');
+    btn.classList.add('remove-button');
     btn.innerHTML = 'Remove';
     btn.addEventListener('click', () => {
       removeBook(book.id);
     });
-    divBook.appendChild(p);
-    divBook.appendChild(p2);
+    divTitle.appendChild(p);
+    divTitle.appendChild(px);
+    divTitle.appendChild(p2);
+    divBook.appendChild(divTitle);
     divBook.appendChild(btn);
     booklist.appendChild(divBook);
     return book;

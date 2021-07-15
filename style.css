@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 .main-container {
   margin-top: 40px;
   text-align: center;
@@ -12,4 +13,72 @@
 .main-container > h1 {
   color: darkred;
   font-size: 35px;
+  margin-bottom: 5vh;
+}
+
+#booklist {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  margin: 0 20%;
+}
+
+.book-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-container > p {
+  margin-right: 10px;
+}
+
+.alternate {
+  background-color: rgb(240, 97, 97) ;
+}
+
+.remove-button {
+  padding: 5px 10px;
+}
+
+.separator {
+  border: 2px solid black;
+  width: 10%;
+  margin: 5vh auto;
+}
+
+#form {
+  margin-top: 40px;
+  text-align: center;
+  margin: 0 20%;
+
+}
+
+#form > h1 {
+  margin-bottom: 5vh;
+}
+
+#add-book {
+  display: flex;
+  flex-direction: column;
+  padding: 0 23%;
+
+}
+
+#add-book > div {
+  margin-bottom: 15px;
+}
+
+.input {
+  width: 287px;
+}
+
+#add-book > button{
+  width: 40px;
+  align-self: flex-end;
 }
