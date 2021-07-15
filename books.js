@@ -42,20 +42,32 @@ function displayBooks() {
   const booklist = document.getElementById('booklist');
   booklist.innerHTML = '';
   myBooklist.booklist.map((book) => {
+    const divListElm = document.createElement('div');
+    const divBtn = document.createElement('div');
     const divBook = document.createElement('div');
-    const p = document.createElement('p'); // Title
-    p.innerHTML = book.title;
-    const p2 = document.createElement('p'); // Author
-    p2.innerHTML = book.author;
+
+    divListElm.classList.add('list-group-item');
+    divListElm.classList.add('list-group-item-action');
+    divListElm.classList.add('d-flex');
+    divListElm.classList.add('justify-content-between');
+
+    const bookText = document.createElement('h4');
+    bookText.innerHTML = `"${book.title}" by ${book.author}`;
     const btn = document.createElement('BUTTON');
     btn.innerHTML = 'Remove';
+    btn.classList.add('btn');
+    btn.classList.add('btn-danger');
+
     btn.addEventListener('click', () => {
       removeBook(book.id);
     });
-    divBook.appendChild(p);
-    divBook.appendChild(p2);
-    divBook.appendChild(btn);
-    booklist.appendChild(divBook);
+
+    divListElm.appendChild(divBook);
+    divListElm.appendChild(divBtn);
+
+    divBook.appendChild(bookText);
+    divBtn.appendChild(btn);
+    booklist.appendChild(divListElm);
     return book;
   });
 }
