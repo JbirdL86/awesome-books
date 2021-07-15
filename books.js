@@ -41,11 +41,17 @@ function removeBook(id) {
 function displayBooks() {
   const booklist = document.getElementById('booklist');
   booklist.innerHTML = '';
+  let i = 0;
   myBooklist.booklist.map((book) => {
     const divBook = document.createElement('div');
     divBook.classList.add('book-div');
     const divTitle = document.createElement('div');
     divTitle.classList.add('title-container');
+    if (i % 2 === 0) {
+      divBook.classList.add('alternate');
+    } else {
+      divBook.classList.remove('alternate');
+    }
     const p = document.createElement('p'); // Title
     p.innerHTML = `"${book.title}"`;
     const px = document.createElement('p'); // by
@@ -64,6 +70,7 @@ function displayBooks() {
     divBook.appendChild(divTitle);
     divBook.appendChild(btn);
     booklist.appendChild(divBook);
+    i += 1;
     return book;
   });
 }
