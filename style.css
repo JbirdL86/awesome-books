@@ -21,12 +21,13 @@
   border: 3px solid black;
   padding: 1vh 0;
   margin: 0 20%;
+  min-width: 234px;
 }
 
 .book-div {
   display: flex;
   justify-content: space-between;
-  padding: 10px 30px;
+  padding: 10px 5px;
 }
 
 .title-container {
@@ -64,11 +65,13 @@
 #add-book {
   display: flex;
   flex-direction: column;
-  padding: 0 23%;
+  align-content: center;
 }
 
 #add-book > div {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .input {
@@ -78,4 +81,14 @@
 #add-book > button {
   width: 40px;
   align-self: flex-end;
+}
+
+@media only screen and (min-width: 567px) {
+  #add-book {
+    margin: 0 30%;
+  }
+
+  .input {
+    width: 100%;
+  }
 }
