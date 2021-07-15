@@ -25,8 +25,8 @@ const myBooklist = new Booklist();
 // eslint-disable-next-line no-unused-vars
 function addBook() {
   const book = {};
-  book.author = document.getElementById('author').value;
   book.title = document.getElementById('title').value;
+  book.author = document.getElementById('author').value;
   myBooklist.addBook(book);
   displayBooks();
   SaveBooks();
@@ -41,21 +41,36 @@ function removeBook(id) {
 function displayBooks() {
   const booklist = document.getElementById('booklist');
   booklist.innerHTML = '';
+  let i = 0;
   myBooklist.booklist.map((book) => {
     const divBook = document.createElement('div');
+    divBook.classList.add('book-div');
+    const divTitle = document.createElement('div');
+    divTitle.classList.add('title-container');
+    if (i % 2 === 0) {
+      divBook.classList.add('alternate');
+    } else {
+      divBook.classList.remove('alternate');
+    }
     const p = document.createElement('p'); // Title
-    p.innerHTML = book.title;
+    p.innerHTML = `"${book.title}"`;
+    const px = document.createElement('p'); // by
+    px.innerHTML = 'by';
     const p2 = document.createElement('p'); // Author
     p2.innerHTML = book.author;
     const btn = document.createElement('BUTTON');
+    btn.classList.add('remove-button');
     btn.innerHTML = 'Remove';
     btn.addEventListener('click', () => {
       removeBook(book.id);
     });
-    divBook.appendChild(p);
-    divBook.appendChild(p2);
+    divTitle.appendChild(p);
+    divTitle.appendChild(px);
+    divTitle.appendChild(p2);
+    divBook.appendChild(divTitle);
     divBook.appendChild(btn);
     booklist.appendChild(divBook);
+    i += 1;
     return book;
   });
 }

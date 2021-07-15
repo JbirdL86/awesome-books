@@ -45,8 +45,8 @@ var myBooklist = new Booklist(); // eslint-disable-next-line no-unused-vars
 
 function addBook() {
   var book = {};
-  book.author = document.getElementById('author').value;
   book.title = document.getElementById('title').value;
+  book.author = document.getElementById('author').value;
   myBooklist.addBook(book);
   displayBooks();
   SaveBooks();
@@ -63,10 +63,10 @@ function displayBooks() {
   booklist.innerHTML = '';
   myBooklist.booklist.map(function (book) {
     var divBook = document.createElement('div');
-    var p = document.createElement('p'); // Author
+    var p = document.createElement('p'); // Title
 
-    p.innerHTML = book.author;
-    var p2 = document.createElement('p'); // Title
+    p.innerHTML = book.title;
+    var p2 = document.createElement('p'); // Author
 
     p2.innerHTML = book.author;
     var btn = document.createElement('BUTTON');
@@ -90,3 +90,6 @@ window.onload = function () {
 function SaveBooks() {
   myBooklist.saveLibrary();
 }
+
+var addButton = document.querySelector('#add-button');
+addButton.addEventListener('click', addBook);
