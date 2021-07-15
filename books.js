@@ -25,8 +25,8 @@ const myBooklist = new Booklist();
 // eslint-disable-next-line no-unused-vars
 function addBook() {
   const book = {};
-  book.author = document.getElementById('author').value;
   book.title = document.getElementById('title').value;
+  book.author = document.getElementById('author').value;
   myBooklist.addBook(book);
   displayBooks();
   SaveBooks();
