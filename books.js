@@ -75,6 +75,7 @@ function displayBooks() {
 // eslint-disable-next-line func-names
 window.onload = function () {
   displaySection('list');
+  dateTime(); 
   displayBooks();
 };
 
@@ -115,7 +116,13 @@ function displaySection(section) {
       default: break;
   }
 }
-  
+
+function dateTime() {
+  const currentDate = document.querySelector('.nav-date');
+  // eslint-disable-next-line no-unused-vars 
+  const { DateTime } = luxon;
+  currentDate.innerHTML = DateTime.now().toFormat('MMM dd yyyy, t');
+  } 
 
 
 
