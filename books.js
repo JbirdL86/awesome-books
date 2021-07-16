@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint no-use-before-define:["error",{"functions":false}] */
 class Booklist {
   constructor() {
@@ -30,7 +31,9 @@ function addBook() {
   myBooklist.addBook(book);
   displayBooks();
   SaveBooks();
+  // eslint-disable-next-line no-multi-assign
   book.title = document.getElementById('title').value = '';
+  // eslint-disable-next-line no-multi-assign
   book.author = document.getElementById('author').value = '';
 }
 
@@ -56,7 +59,6 @@ function displayBooks() {
     }
     const p = document.createElement('p'); // Title
     p.innerHTML = `"${book.title}" by ${book.author} `;
-    
     const btn = document.createElement('BUTTON');
     btn.classList.add('remove-button');
     btn.innerHTML = 'Remove';
@@ -75,7 +77,7 @@ function displayBooks() {
 // eslint-disable-next-line func-names
 window.onload = function () {
   displaySection('list');
-  dateTime(); 
+  dateTime();
   displayBooks();
 };
 
@@ -87,14 +89,12 @@ const addButton = document.querySelector('#add-button');
 
 addButton.addEventListener('click', addBook);
 
-
 function displaySection(section) {
   const listSection = document.getElementById('listSection');
   const formSection = document.getElementById('formSection');
   const contactSection = document.getElementById('contactSection');
 
   switch (section) {
-
     case 'list':
       listSection.classList.remove('d-none');
       formSection.classList.add('d-none');
@@ -113,16 +113,13 @@ function displaySection(section) {
       contactSection.classList.remove('d-none');
       break;
 
-      default: break;
+    default: break;
   }
 }
 
 function dateTime() {
   const currentDate = document.querySelector('.nav-date');
-  // eslint-disable-next-line no-unused-vars 
+  // eslint-disable-next-line no-unused-vars
   const { DateTime } = luxon;
   currentDate.innerHTML = DateTime.now().toFormat('MMM dd yyyy, t');
-  } 
-
-
-
+}
