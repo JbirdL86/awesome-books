@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint no-use-before-define:["error",{"functions":false}] */
 class Booklist {
   constructor() {
@@ -30,6 +31,10 @@ function addBook() {
   myBooklist.addBook(book);
   displayBooks();
   SaveBooks();
+  // eslint-disable-next-line no-multi-assign
+  book.title = document.getElementById('title').value = '';
+  // eslint-disable-next-line no-multi-assign
+  book.author = document.getElementById('author').value = '';
 }
 
 function removeBook(id) {
@@ -53,11 +58,7 @@ function displayBooks() {
       divBook.classList.remove('alternate');
     }
     const p = document.createElement('p'); // Title
-    p.innerHTML = `"${book.title}"`;
-    const px = document.createElement('p'); // by
-    px.innerHTML = 'by';
-    const p2 = document.createElement('p'); // Author
-    p2.innerHTML = book.author;
+    p.innerHTML = `"${book.title}" by ${book.author} `;
     const btn = document.createElement('BUTTON');
     btn.classList.add('remove-button');
     btn.innerHTML = 'Remove';
@@ -65,8 +66,6 @@ function displayBooks() {
       removeBook(book.id);
     });
     divTitle.appendChild(p);
-    divTitle.appendChild(px);
-    divTitle.appendChild(p2);
     divBook.appendChild(divTitle);
     divBook.appendChild(btn);
     booklist.appendChild(divBook);
@@ -77,6 +76,8 @@ function displayBooks() {
 
 // eslint-disable-next-line func-names
 window.onload = function () {
+  displaySection('list');
+  dateTime();
   displayBooks();
 };
 
@@ -87,3 +88,38 @@ function SaveBooks() {
 const addButton = document.querySelector('#add-button');
 
 addButton.addEventListener('click', addBook);
+
+function displaySection(section) {
+  const listSection = document.getElementById('listSection');
+  const formSection = document.getElementById('formSection');
+  const contactSection = document.getElementById('contactSection');
+
+  switch (section) {
+    case 'list':
+      listSection.classList.remove('d-none');
+      formSection.classList.add('d-none');
+      contactSection.classList.add('d-none');
+      break;
+
+    case 'new':
+      listSection.classList.add('d-none');
+      formSection.classList.remove('d-none');
+      contactSection.classList.add('d-none');
+      break;
+
+    case 'contact':
+      listSection.classList.add('d-none');
+      formSection.classList.add('d-none');
+      contactSection.classList.remove('d-none');
+      break;
+
+    default: break;
+  }
+}
+
+function dateTime() {
+  const currentDate = document.querySelector('.nav-date');
+  // eslint-disable-next-line no-unused-vars
+  const { DateTime } = luxon;
+  currentDate.innerHTML = DateTime.now().toFormat('MMM dd yyyy, t');
+}
