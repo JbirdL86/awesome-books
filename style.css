@@ -4,6 +4,46 @@
   box-sizing: border-box;
 }
 
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.logo {
+  padding: 5px 3px;
+  margin-left: 5px;
+}
+
+.nav-container {
+  width: 25%;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  list-style: none;
+}
+
+.nav-separator {
+  border-right: 1px solid black;
+  margin: 4px 0;
+}
+
+.nav-ul > li {
+  text-decoration: none;
+  list-style: none;
+  padding: 5px 3px;
+}
+
+.nav-ul li > a {
+  text-decoration: none;
+  color: black;
+}
+
 .main-container {
   margin-top: 40px;
   text-align: center;

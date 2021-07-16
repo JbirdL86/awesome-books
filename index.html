@@ -11,8 +11,21 @@
 
 <body>
   <main>
+    <nav class="nav-bar">
+      <div class="logo">Awesome Books</div>
+      <div class="nav-container">
+        <ul class="nav-ul">
+          <li><a href="#">List</a></li>
+          <li class="nav-separator"></li>
+          <li><a href="#">Add new</a></li>
+          <li class="nav-separator"></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="nav-date"></div>
     <section class="main-container">
-      <h1>Awesome Book</h1>
+      <h1>All awesome Book</h1>
       <div id="booklist" class="remove-section">
 
       </div>
@@ -30,8 +43,15 @@
         <button type="submit" id="add-button">Add</button>
       </form>
     </section>
+    <section class="contact-container">
+      <h1>Contact information</h1>
+      <div class="contact-info"></div>
+    </section>
   </main>
   <script src="books.js"></script>
+  <footer>
+    <div class="copyright"></div>
+  </footer>
 </body>
 
 </html>
