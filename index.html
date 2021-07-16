@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <title>Awesome Books</title>
 </head>
@@ -15,23 +16,22 @@
       <div class="logo">Awesome Books</div>
       <div class="nav-container">
         <ul class="nav-ul">
-          <li><a href="#">List</a></li>
+          <li><a href="#" onclick='displaySection("list")'>List</a></li>
           <li class="nav-separator"></li>
-          <li><a href="#">Add new</a></li>
+          <li><a href="#" onclick='displaySection("new")'>Add new</a></li>
           <li class="nav-separator"></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#" onclick='displaySection("contact")'>Contact</a></li>
         </ul>
       </div>
     </nav>
     <div class="nav-date"></div>
-    <section class="main-container">
+    <section id="listSection" class="main-container">
       <h1>All awesome Book</h1>
       <div id="booklist" class="remove-section">
 
       </div>
     </section>
-    <div class="separator"></div>
-    <section id="form">
+    <section id="formSection">
       <h1>Add a new book</h1>
       <form id="add-book">
         <div>
@@ -43,12 +43,19 @@
         <button type="submit" id="add-button">Add</button>
       </form>
     </section>
-    <section class="contact-container">
+    <section id="contactSection" class="contact-container">
       <h1>Contact information</h1>
-      <div class="contact-info"></div>
+      <div class="contact-info">
+        <h1>Contact information</h1>
+        <h1>Contact information</h1>
+        <h1>Contact information</h1>
+        <h1>Contact information</h1>
+        <h1>Contact information</h1>
+      </div>
     </section>
   </main>
   <script src="books.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <footer>
     <div class="copyright"></div>
   </footer>
